@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
 
-const companySchema = mongoose.Schema({
+const companySchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     chiefName: {
         type: String,
@@ -15,17 +16,10 @@ const companySchema = mongoose.Schema({
     },
     companyPhone: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     activity: {
-        type: String,
-        required: true
-    },
-    username: {
-        type: String,
-        required: true
-    },
-    password: {
         type: String,
         required: true
     },
@@ -35,7 +29,13 @@ const companySchema = mongoose.Schema({
     },
     email: {
         type: String,
-        required: false
+        required: false,
+        unique: false
+    },
+    createdAt: {
+        type: Date,
+        required: true,
+        default: new Date()
     }
 });
 
