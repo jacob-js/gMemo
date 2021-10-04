@@ -6,7 +6,7 @@ import { sendResult } from "../../Utils/helper";
 const companysController = {
     create: async(req, res) =>{
         try {
-            const company = new Companys(req.body);
+            const company = new Companys({...req.body, createdAt: new Date()});
             if(company){
                 await company.save();
                 sendResult(res, 200, null, 'company created', company);
