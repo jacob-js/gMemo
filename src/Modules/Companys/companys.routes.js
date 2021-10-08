@@ -4,7 +4,7 @@ import companysController from './companys.controller';
 import companysValidator from './companys.validator';
 const companysRouter = express.Router();
 
-companysRouter.post('/', companysValidator.validateSchema, companysValidator.checkNameExist, companysValidator.checkPhoneExist, companysValidator.checkEmailExist, companysController.create)
+companysRouter.post('/', companysValidator.validateSchema, companysValidator.validateCredSchema,  companysValidator.checkNameExist, companysValidator.checkUsernameExist, companysValidator.checkPhoneExist, companysValidator.checkEmailExist, companysController.create)
                 .get('/', companysController.getAll)
                 .get('/:id', companysController.getById)
                 .put('/:id', companysValidator.checkUpdateNameExist, companysValidator.checkUpdatePhoneExist, companysValidator.checkUpdateEmailExist, companysController.update)

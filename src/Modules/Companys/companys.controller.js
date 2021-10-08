@@ -5,11 +5,19 @@ import { sendResult } from "../../Utils/helper";
 
 const companysController = {
     create: async(req, res) =>{
+        const {username, password} = req.body;
         try {
             const company = new Companys({...req.body, createdAt: new Date()});
             if(company){
                 await company.save();
-                sendResult(res, 200, null, 'company created', company);
+                const hash = hashPwd(password);
+                const credentials = await Credentials.create({ password: hash, company: company._id, username });
+                const token = createToken(credentials._id);
+                if(credentials){
+                    sendResult(res, 200, null, 'company created', { company: company, cred: credentials, token: token })
+                }else{
+                    sendResult(res, 403, 'cannot save credentials')
+                }
             }
         } catch (error) {
             sendResult(res, 500, 'Something went wrong');
