@@ -25,6 +25,7 @@ const companySchema = new mongoose.Schema({
         required: true
     },
     city: { type: String, required: true },
+    allowed: { type: Boolean, default: false },
     createdAt: {
         type: Date,
         required: true,

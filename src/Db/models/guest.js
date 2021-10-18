@@ -1,15 +1,7 @@
 import mongoose from 'mongoose';
 
 const guestSchema = mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    firstName: {
-        type: String,
-        required: true
-    },
-    lastName: {
+    fullname: {
         type: String,
         required: true
     },
@@ -25,8 +17,10 @@ const guestSchema = mongoose.Schema({
         required: true
     },
     address: { type: String },
+    cardNum: { type: Number },
     target: { type: String, required: true },
     createdAt: { type: Date, default: new Date() },
+    exitDate: { type: Date },
     company: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,

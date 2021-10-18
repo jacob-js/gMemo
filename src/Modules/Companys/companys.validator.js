@@ -5,19 +5,16 @@ import { sendResult, validatorOptions } from "../../Utils/helper";
 
 const schema = Joi.object({
     name: Joi.string().required().messages({
-        'any.required': 'name is required'
+        'any.required': 'le nom est obligatoire'
     }),
-    chiefName: Joi.string().required().messages({
-        'any.required': 'chief name is required'
+    city: Joi.string().required().messages({
+        'any.required': 'Veuillez preciser la ville'
     }),
-    chiefPhone: Joi.string().required().messages({
-        'any.required': 'chief phone number is required'
+    phone: Joi.string().required().messages({
+        'any.required': "Le numéro de téléphone est obligatoire"
     }),
-    companyPhone: Joi.string().required().messages({
-        'any.required': 'phone number is required'
-    }),
-    activity: Joi.string().required().messages({
-        'any.required': 'activity is required'
+    address: Joi.string().required().messages({
+        'any.required': "l'adresse est obligatoire"
     })
 });
 
