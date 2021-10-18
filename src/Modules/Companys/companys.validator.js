@@ -39,8 +39,8 @@ const loginSchema = Joi.object({
     username: Joi.string().required().messages({
         'any.required': "le nom d'utilisateur est obligatoire"
     }),
-    password: Joi.string().min(6).required().messages({
-        'any.required': "le mot de passe est obligatoire"
+    password: Joi.string().required().messages({
+        'any.required': "le mot de passe est obligatoire",
     }),
 })
 

@@ -6,22 +6,10 @@ const companySchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    chiefName: {
-        type: String,
-        required: true
-    },
-    chiefPhone: {
-        type: String,
-        required: true
-    },
-    companyPhone: {
+    phone: {
         type: String,
         required: true,
         unique: true
-    },
-    activity: {
-        type: String,
-        required: true
     },
     logo: {
         type: String,
@@ -32,6 +20,11 @@ const companySchema = new mongoose.Schema({
         required: false,
         unique: false
     },
+    address: {
+        type: String,
+        required: true
+    },
+    city: { type: String, required: true },
     createdAt: {
         type: Date,
         required: true,
